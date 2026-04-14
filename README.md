@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/assets/diu-logo.png" alt="DIU Logo" width="80">
+  <img src="frontend/assets/DIU_logo.jpg" alt="DIU Logo" width="80">
 </p>
 
 <h1 align="center">Student Database Management System</h1>
