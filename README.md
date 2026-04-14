@@ -19,6 +19,13 @@
 <p align="center">
   <img src="https://img.shields.io/badge/University-Daffodil%20International%20University-002147?style=flat-square" alt="DIU">
   <img src="https://img.shields.io/badge/Semester-Spring%202026-informational?style=flat-square" alt="Semester">
+  <img src="https://img.shields.io/badge/Status-Deployed-brightgreen?style=flat-square" alt="Deployed">
+</p>
+
+<p align="center">
+  <a href="https://mohammademon10.github.io/Data-Structure-CSE124-PROJECT/"><strong>🌐 Live Demo →</strong></a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://github.com/mohammademon10/Data-Structure-CSE124-PROJECT"><strong>📦 Repository →</strong></a>
 </p>
 
 ---
@@ -130,7 +137,7 @@ Student-Database-Management-System/
 │   ├── js/
 │   │   └── app.js                # CRUD logic with localStorage
 │   └── assets/
-│       └── diu-logo.png          # University logo
+│       └── DIU_logo.jpg          # University logo
 │
 ├── tests/                        # Test documentation
 │   └── test_cases.txt            # 20 functional test cases
@@ -181,8 +188,8 @@ graph TD
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/Student-Database-Management-System.git
-cd Student-Database-Management-System
+git clone https://github.com/mohammademon10/Data-Structure-CSE124-PROJECT.git
+cd Data-Structure-CSE124-PROJECT
 ```
 
 ### Run the Console Backend
