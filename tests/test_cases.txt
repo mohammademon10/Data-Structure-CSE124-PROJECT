@@ -1,0 +1,207 @@
+═══════════════════════════════════════════════════════════════
+  TEST CASES — Student Database Management System
+  Course: CSE 124 - Data Structure Lab
+  Daffodil International University
+═══════════════════════════════════════════════════════════════
+
+──────────────────────────────────────────────────────────────
+  TC-01: Add Student — Valid Input
+──────────────────────────────────────────────────────────────
+  Input:
+    Name      → Emon Hossain
+    ID        → 232-15-818
+    Email     → emon@diu.edu.bd
+    Blood     → A+
+    Contact   → +8801712345678
+
+  Expected Output:
+    [SUCCESS] Student added to the database.
+    Data saved successfully.
+
+──────────────────────────────────────────────────────────────
+  TC-02: Add Student — Duplicate ID
+──────────────────────────────────────────────────────────────
+  Precondition: Student with ID 232-15-818 already exists.
+  Input:
+    Name      → Test User
+    ID        → 232-15-818
+
+  Expected Output:
+    [!] This student ID already exists. Enter a new ID:
+
+──────────────────────────────────────────────────────────────
+  TC-03: Add Student — Invalid Email Domain
+──────────────────────────────────────────────────────────────
+  Input:
+    Email     → emon@gmail.com
+
+  Expected Output:
+    [!] Invalid email. Must contain '@diu.edu.bd'. Try again:
+
+──────────────────────────────────────────────────────────────
+  TC-04: Add Student — Invalid Blood Group
+──────────────────────────────────────────────────────────────
+  Input:
+    Blood     → X+
+
+  Expected Output:
+    [!] Invalid blood group. Valid: A+, A-, B+, B-, AB+, AB-, O+, O-
+
+──────────────────────────────────────────────────────────────
+  TC-05: Add Student — Invalid Contact Number
+──────────────────────────────────────────────────────────────
+  Input:
+    Contact   → abc123
+
+  Expected Output:
+    [!] Invalid contact. Must be 7+ digits (digits, +, - only).
+
+──────────────────────────────────────────────────────────────
+  TC-06: Add Student — Duplicate Email
+──────────────────────────────────────────────────────────────
+  Precondition: Student with email emon@diu.edu.bd already exists.
+  Input:
+    Email     → emon@diu.edu.bd
+
+  Expected Output:
+    [!] This email is already registered. Enter a new email:
+
+──────────────────────────────────────────────────────────────
+  TC-07: Add Student — Duplicate Contact
+──────────────────────────────────────────────────────────────
+  Precondition: Student with contact +8801712345678 already exists.
+  Input:
+    Contact   → +8801712345678
+
+  Expected Output:
+    [!] This contact number is already registered. Enter a new one:
+
+──────────────────────────────────────────────────────────────
+  TC-08: Delete Student — Valid ID
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 232-15-818
+
+  Expected Output:
+    [SUCCESS] Student record deleted from database.
+
+──────────────────────────────────────────────────────────────
+  TC-09: Delete Student — Non-existent ID
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 999-99-999
+
+  Expected Output:
+    [!] Student with ID '999-99-999' not found.
+
+──────────────────────────────────────────────────────────────
+  TC-10: Show All Students — Empty Database
+──────────────────────────────────────────────────────────────
+  Precondition: No students in the list.
+
+  Expected Output:
+    [!] No student records found in the database.
+
+──────────────────────────────────────────────────────────────
+  TC-11: Show All Students — With Records
+──────────────────────────────────────────────────────────────
+  Precondition: 3 students exist.
+
+  Expected Output:
+    Student #1 details
+    Student #2 details
+    Student #3 details
+    Total: 3 student(s)
+
+──────────────────────────────────────────────────────────────
+  TC-12: Count Students — Empty List
+──────────────────────────────────────────────────────────────
+  Expected Output:
+    Total number of students: 0
+
+──────────────────────────────────────────────────────────────
+  TC-13: Update Student — Keep Existing Values (press Enter)
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 232-15-818
+    Name      → (press Enter)
+    Email     → (press Enter)
+    Blood     → (press Enter)
+    Contact   → (press Enter)
+    New ID    → (press Enter)
+
+  Expected Output:
+    [SUCCESS] Student record updated.
+    (All fields remain unchanged)
+
+──────────────────────────────────────────────────────────────
+  TC-14: Update Student — Change Name Only
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 232-15-818
+    Name      → MD Emon
+    (All other fields → press Enter)
+
+  Expected Output:
+    [SUCCESS] Student record updated.
+    Name changed to "MD Emon", other fields unchanged.
+
+──────────────────────────────────────────────────────────────
+  TC-15: Search Student — Found
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 232-15-818
+
+  Expected Output:
+    Student found: (displays full details)
+
+──────────────────────────────────────────────────────────────
+  TC-16: Search Student — Not Found
+──────────────────────────────────────────────────────────────
+  Input:
+    ID        → 000-00-000
+
+  Expected Output:
+    [!] Student with ID '000-00-000' not found.
+
+──────────────────────────────────────────────────────────────
+  TC-17: Menu — Invalid Choice (Letter Input)
+──────────────────────────────────────────────────────────────
+  Input:
+    Choice    → abc
+
+  Expected Output:
+    Invalid choice! Please try again.
+    (Returns to main menu without crashing)
+
+──────────────────────────────────────────────────────────────
+  TC-18: File Persistence — Save and Reload
+──────────────────────────────────────────────────────────────
+  Steps:
+    1. Add 2 students
+    2. Exit program
+    3. Restart program
+
+  Expected Output:
+    Loaded 2 student record(s) from database.
+    Show info displays both students.
+
+──────────────────────────────────────────────────────────────
+  TC-19: Exit Program
+──────────────────────────────────────────────────────────────
+  Input:
+    Choice    → 0
+
+  Expected Output:
+    Exiting program. Goodbye!
+    Data saved successfully.
+
+──────────────────────────────────────────────────────────────
+  TC-20: Add Student — Empty Name
+──────────────────────────────────────────────────────────────
+  Input:
+    Name      → (press Enter without typing)
+
+  Expected Output:
+    [ERROR] Name cannot be empty.
+    Returns to main menu.

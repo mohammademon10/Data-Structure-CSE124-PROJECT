@@ -1,0 +1,32 @@
+# ══════════════════════════════════════════════════════════
+#  .gitignore — Student Database Management System
+# ══════════════════════════════════════════════════════════
+
+# ── Compiled binaries ──
+*.exe
+*.out
+*.o
+*.obj
+student_db
+student_db.exe
+
+# ── IDE / Editor files ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── OS files ──
+desktop.ini
+*.lnk
+
+# ── Build artifacts ──
+build/
+bin/
+
+# ── Data files (keep structure, not content) ──
+# Uncomment below to exclude student data from version control:
+# data/students.txt

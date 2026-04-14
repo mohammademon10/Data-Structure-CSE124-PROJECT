@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard — Student Database Management System. Manage student records with full CRUD operations.">
+    <title>Admin Dashboard | Student DBMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="sidebar-title">Student DBMS</h2>
+                <p class="sidebar-sub">Admin Panel</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-section="dashboard" id="nav-dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" data-section="add" id="nav-add">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                <span>Add Student</span>
+            </button>
+            <button class="nav-item" data-section="search" id="nav-search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <span>Search</span>
+            </button>
+            <button class="nav-item" data-section="all" id="nav-all">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>All Students</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item" id="nav-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+
+        <!-- ═══════════════════ DASHBOARD SECTION ═══════════════════ -->
+        <section class="section active" id="section-dashboard">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+                <p class="section-desc">Overview of your student database</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" id="stat-total">
+                    <div class="stat-icon stat-icon-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="total-count">0</span>
+                        <span class="stat-label">Total Students</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" id="stat-recent">
+                    <div class="stat-icon stat-icon-green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="recent-count">0</span>
+                        <span class="stat-label">Added Today</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" id="stat-blood">
+                    <div class="stat-icon stat-icon-red">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="blood-groups">0</span>
+                        <span class="stat-label">Blood Groups</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" id="stat-storage">
+                    <div class="stat-icon stat-icon-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="storage-status">Active</span>
+                        <span class="stat-label">Storage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Students Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Recent Students</h3>
+                    <button class="btn-ghost" id="btn-view-all" onclick="switchSection('all')">View All →</button>
+                </div>
+                <div class="table-wrapper">
+                    <table id="recent-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Student ID</th>
+                                <th>Email</th>
+                                <th>Blood</th>
+                                <th>Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-table-body">
+                            <tr class="empty-row">
+                                <td colspan="6">No students in the database yet. Add one to get started!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════ ADD STUDENT SECTION ═══════════════════ -->
+        <section class="section" id="section-add">
+            <div class="section-header">
+                <h1>Add Student</h1>
+                <p class="section-desc">Register a new student in the database</p>
+            </div>
+
+            <div class="form-card">
+                <form id="add-student-form" autocomplete="off">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="input-name">Full Name</label>
+                            <input type="text" id="input-name" placeholder="e.g. MD. Emon Hossain" required minlength="2" maxlength="99">
+                            <span class="form-hint">Enter the student's full name</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-id">Student ID</label>
+                            <input type="text" id="input-id" placeholder="e.g. 232-15-818" required>
+                            <span class="form-hint">Unique university ID</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-email">DIU Email</label>
+                            <input type="email" id="input-email" placeholder="e.g. emon@diu.edu.bd" required>
+                            <span class="form-hint">Must end with @diu.edu.bd</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-blood">Blood Group</label>
+                            <select id="input-blood" required>
+                                <option value="" disabled selected>Select blood group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                            <span class="form-hint">Select from valid blood groups</span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="input-contact">Contact Number</label>
+                            <input type="tel" id="input-contact" placeholder="e.g. +8801712345678" required minlength="7" maxlength="19">
+                            <span class="form-hint">Digits, + and - only. Min 7 characters.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn-secondary" id="btn-reset">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                            Clear
+                        </button>
+                        <button type="submit" class="btn-primary" id="btn-add-student">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                            Add Student
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ═══════════════════ SEARCH SECTION ═══════════════════ -->
+        <section class="section" id="section-search">
+            <div class="section-header">
+                <h1>Search Student</h1>
+                <p class="section-desc">Find a student by their ID</p>
+            </div>
+
+            <div class="search-card">
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <input type="text" id="search-input" placeholder="Enter Student ID to search..." autofocus>
+                    <button class="btn-primary btn-sm" id="btn-search" onclick="searchStudent()">Search</button>
+                </div>
+            </div>
+
+            <div id="search-result" class="search-result" style="display:none;"></div>
+        </section>
+
+        <!-- ═══════════════════ ALL STUDENTS SECTION ═══════════════════ -->
+        <section class="section" id="section-all">
+            <div class="section-header">
+                <div>
+                    <h1>All Students</h1>
+                    <p class="section-desc">Complete database records</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-mini">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" id="filter-input" placeholder="Filter records..." oninput="filterStudents()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <div class="table-wrapper">
+                    <table id="all-students-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Student ID</th>
+                                <th>Email</th>
+                                <th>Blood Group</th>
+                                <th>Contact</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-students-body">
+                            <tr class="empty-row">
+                                <td colspan="7">No students found. Add a student to see records here.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="edit-modal" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Edit Student</h2>
+                <button class="modal-close" id="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <form id="edit-student-form" autocomplete="off">
+                <input type="hidden" id="edit-original-id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-id">Student ID</label>
+                        <input type="text" id="edit-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">DIU Email</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-blood">Blood Group</label>
+                        <select id="edit-blood" required>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="edit-contact">Contact Number</label>
+                        <input type="tel" id="edit-contact" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="delete-modal" style="display:none;">
+        <div class="modal-card modal-sm">
+            <div class="modal-header">
+                <h2>Confirm Delete</h2>
+                <button class="modal-close" onclick="closeDeleteModal()">×</button>
+            </div>
+            <p class="modal-body-text">Are you sure you want to delete this student record? This action cannot be undone.</p>
+            <p class="delete-student-name" id="delete-student-name"></p>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                <button type="button" class="btn-danger" id="btn-confirm-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
