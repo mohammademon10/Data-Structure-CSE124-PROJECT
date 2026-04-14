@@ -332,3 +332,7 @@ This project is licensed under the [MIT License](LICENSE).
 <p align="center">
   Made with ❤️ at <strong>Daffodil International University</strong>
 </p>
+
+<p align="center">
+  © 2026 <strong>Md. Emon Hossain</strong>. All rights reserved.
+</p>
